@@ -5,23 +5,26 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField]
-    GameObject ball;
+    Rigidbody2D ball;
     public float speed;
 
     Rigidbody2D rb;
 
     [SerializeField]
-
     float xBound;
 
+    public bool started;
+
     Vector2 movement;
+
+    Joint2D joint;
     void Start()
     {
+        joint = GetComponent<Joint2D>();
         rb = GetComponent<Rigidbody2D>();
         movement.y = 0;
     }
 
-    // Update is called once per frame
     void Update()
     {
 
@@ -34,19 +37,7 @@ public class Player : MonoBehaviour
             transform.position = new Vector2(-xBound, transform.position.y);
         }
 
-
-        // if (Input.GetKey(KeyCode.D))
-        // {
-        //     rb.velocity = new Vector2(speed, 0);
-        // }
-        // if (Input.GetKey(KeyCode.A))
-        // {
-        //     rb.velocity = new Vector2(-speed, 0);
-
-        // }
-
         movement.x = Input.GetAxisRaw("Horizontal");
-
 
         if (Input.GetKeyUp(KeyCode.D))
         {
@@ -58,10 +49,11 @@ public class Player : MonoBehaviour
 
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && !started)
         {
-            GetComponent<Joint2D>().enabled = false;
-            ball.GetComponent<Rigidbody2D>().AddForce(new Vector2(30, 50));
+            started = true;
+            joint.enabled = false;
+            ball.AddForce(new Vector2(30, 50));
         }
 
     }

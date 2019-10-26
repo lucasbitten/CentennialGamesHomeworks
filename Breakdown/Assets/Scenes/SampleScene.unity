@@ -644,7 +644,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -287, y: 237}
+  m_AnchoredPosition: {x: -262, y: 220}
   m_SizeDelta: {x: 16, y: 16}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &153104156
@@ -970,7 +970,7 @@ GameObject:
   - component: {fileID: 193792443}
   - component: {fileID: 193792442}
   - component: {fileID: 193792445}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Ball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1103,7 +1103,7 @@ MonoBehaviour:
   left: {fileID: 1871687503}
   right: {fileID: 817538364}
   startPoint: {fileID: 530511073}
-  player: {fileID: 1074910003}
+  player: {fileID: 1074910004}
   lifeManager: {fileID: 1807525011}
   gameOverScreen: {fileID: 219761546}
 --- !u!1001 &197054986
@@ -3821,7 +3821,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -347, y: 237}
+  m_AnchoredPosition: {x: -322, y: 220}
   m_SizeDelta: {x: 16, y: 16}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &923187610
@@ -4434,9 +4434,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48d9e65766dc5b84a83fa511643fa1ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ball: {fileID: 193792440}
+  ball: {fileID: 193792442}
   speed: 5
   xBound: 5.62
+  started: 0
 --- !u!255 &1074910004
 FixedJoint2D:
   m_ObjectHideFlags: 0
@@ -4696,7 +4697,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -8355,7 +8356,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -317, y: 237}
+  m_AnchoredPosition: {x: -292, y: 220}
   m_SizeDelta: {x: 16, y: 16}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2077360977

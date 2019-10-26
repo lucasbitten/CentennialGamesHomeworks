@@ -17,12 +17,13 @@ public class Ball : MonoBehaviour
     [SerializeField]
     Transform startPoint;
     [SerializeField]
-    Player player;
+    Joint2D player;
     WaitForSeconds wait = new WaitForSeconds(0.5f);
     [SerializeField]
     LifeManager lifeManager;
     [SerializeField]
     GameObject gameOverScreen;
+
     private void Start() {
         
         rb = GetComponent<Rigidbody2D>();
@@ -45,7 +46,7 @@ public class Ball : MonoBehaviour
 
         if (other.collider == left){
 
-            if (rb.velocity.x > 0){
+            if (rb.velocity.x >= 0){
                 rb.velocity = new Vector2(-rb.velocity.x, rb.velocity.y);
             }
             if (rb.velocity.x < 0){
@@ -71,6 +72,7 @@ public class Ball : MonoBehaviour
             if(lifeManager.lifes > 0){
                 StartCoroutine(Died());
                 lifeManager.RemoveLife();
+                player.GetComponent<Player>().started = false;
             } else
             {
                 gameOverScreen.SetActive(true);
@@ -84,7 +86,7 @@ public class Ball : MonoBehaviour
     {
         yield return wait;
         rb.velocity = Vector2.zero;
-        player.GetComponent<Joint2D>().enabled = true;
+        player.enabled = true;
         transform.position = startPoint.position;
     }
 }

@@ -18,8 +18,6 @@ public class PlayerController : MonoBehaviour
     KeyCode up;
     KeyCode down;
 
-    // [SerializeField]
-    // Rigidbody2D ball;
     void Start()
     {
         myRigidBody = GetComponent<Rigidbody2D>();
@@ -35,31 +33,31 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    // Update is called once per frame
     void Update()
     {
 
-        // if (!started){
-
-        //     if(Input.GetKeyDown(KeyCode.Space)){
-        //         started = true;
-        //         ball.transform.SetParent(null);
-        //         ball.velocity = new Vector3 (speed, speed, 0);
-        //         //Launch Ball
-
-        //     }
-
-        // }
-
         if (Input.GetKey(up)){
-
-            // if(!started){
-            //     ball.velocity = new Vector3(0, speed, 0);
-            // }
-
             myRigidBody.velocity = new Vector3(0, speed, 0);
+        }
+
+        if (Input.GetKeyUp(up)){
+
+            myRigidBody.velocity = Vector3.zero;
 
         }
+
+
+        if (Input.GetKey(down)){
+
+            myRigidBody.velocity = new Vector3(0, -speed, 0);
+
+        }
+        if (Input.GetKeyUp(down)){
+            myRigidBody.velocity = Vector3.zero;
+
+        }
+        
+
 
         if (transform.position.y > yBound){
             transform.position = new Vector2(transform.position.x, yBound);
@@ -69,34 +67,7 @@ public class PlayerController : MonoBehaviour
         }
 
 
-        if (Input.GetKeyUp(up)){
-
-            // if(!started){
-            //     ball.velocity = Vector3.zero;
-            // }
-
-            myRigidBody.velocity = Vector3.zero;
-
-        }
 
 
-        if (Input.GetKey(down)){
-
-
-            // if(!started){
-            //     ball.velocity = new Vector3(0, -speed, 0);
-            // }
-
-            myRigidBody.velocity = new Vector3(0, -speed, 0);
-
-        }
-        if (Input.GetKeyUp(down)){
-            // if(!started){
-            //     ball.velocity = Vector3.zero;
-            // }
-            myRigidBody.velocity = Vector3.zero;
-
-        }
-        
     }
 }

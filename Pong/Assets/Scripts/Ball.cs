@@ -31,10 +31,7 @@ public class Ball : MonoBehaviour
             } else if (!gameStarted)
             {
                 StartGame();
-
             }
-
-
         }
     }
 
